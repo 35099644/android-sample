@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4
+END
+ipt_realm.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_realm.h
+END
+ipt_LOG.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_LOG.h
+END
+ipt_TTL.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_TTL.h
+END
+ipt_ttl.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_ttl.h
+END
+ipt_ecn.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_ecn.h
+END
+ipt_SAME.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_SAME.h
+END
+ipt_ECN.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_ECN.h
+END
+ip_tables.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ip_tables.h
+END
+ipt_ULOG.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_ULOG.h
+END
+ipt_ah.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_ah.h
+END
+ipt_CLUSTERIP.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_CLUSTERIP.h
+END
+ipt_REJECT.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_REJECT.h
+END
+ipt_addrtype.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/188/trunk/external/iptables/include/linux/netfilter_ipv4/ipt_addrtype.h
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/188/trunk/external/iptables/libiptc
+END
+linux_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/188/trunk/external/iptables/libiptc/linux_list.h
+END
+libiptc.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/188/trunk/external/iptables/libiptc/libiptc.c
+END
+libip4tc.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/188/trunk/external/iptables/libiptc/libip4tc.c
+END
+libip6tc.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/188/trunk/external/iptables/libiptc/libip6tc.c
+END
+linux_stddef.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/188/trunk/external/iptables/libiptc/linux_stddef.h
+END

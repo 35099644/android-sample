@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/one">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/relativeLayout1">
+        <ListView android:id="@+id/lvDevices" android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:layout_below="@+id/btnExit"></ListView>
+        <Button android:text="Native Bluetooth visibility" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="25sp" android:id="@+id/btnDis" android:layout_alignParentTop="true" android:layout_alignRight="@+id/imageView1" android:layout_marginRight="64dp" android:layout_marginTop="315dp"></Button>
+        <Button android:layout_width="wrap_content" android:textSize="25sp" android:id="@+id/btnExit" android:layout_height="wrap_content" android:text="Return to home menu" android:layout_below="@+id/btnSearch" android:layout_alignRight="@+id/btnSearch" android:layout_marginTop="37dp" android:layout_alignLeft="@+id/btnDis"></Button>
+        <Button android:layout_width="110dip" android:textSize="25sp" android:id="@+id/btnSearch" android:layout_height="50dip" android:text="Search Equipment" android:layout_alignBottom="@+id/btnDis" android:layout_alignLeft="@+id/tbtnSwitch"></Button>
+        <ToggleButton android:textOff="Off" android:layout_width="110dip" android:layout_height="50dip" android:textOn="On" android:id="@+id/tbtnSwitch" android:textSize="23sp" android:text="OFF" android:layout_alignBottom="@+id/imageView1" android:layout_alignRight="@+id/imageView2" android:layout_marginRight="52dp" android:layout_marginBottom="23dp"></ToggleButton>
+        <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/imageView1" android:src="@drawable/lanya" android:layout_above="@+id/btnSearch" android:layout_toLeftOf="@+id/tbtnSwitch" android:layout_marginRight="41dp"></ImageView>
+        <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/imageView2" android:src="@drawable/sousuo" android:layout_above="@+id/tbtnSwitch" android:layout_centerHorizontal="true"></ImageView>
+    </RelativeLayout>
+</LinearLayout>

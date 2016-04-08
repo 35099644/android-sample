@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="start">
+未创建.\n
+欢迎使用本系统,你可以记录你的轨迹,并能将其显示在地图上.点击菜单，选择“新建”
+或者查看其它功能,预祝使用愉快!
+</string>
+<string name="version_text">Ver xxxxx \n</string>
+    <string name="helps_text">本项目能读取你的GPS信息,并将其显示在Map上你可以建立多个目标。
+在主界面上点击菜单，选择需要的动作:\n
+<b>新建:</b> 创建一个新的目标记录;\n
+<b>继续:</b> 选择目标记录列表中记录,可以继续处理;\n
+<b>设置:</b> 配置个性化信息;\n
+<b>帮助:</b> 打开帮助信息;\n
+<b>退出:</b> 退出应用.\n
+
+    </string>
+    <string name="author_text">Name:Iaaaa \nEmail:aaaaa@gmail.com \nBlog:http://xxx.yyy.com</string>
+
+</resources>
+    

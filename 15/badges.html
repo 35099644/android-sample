@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>List with Badges</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<style>
+		/* wrap the text for the movie review */
+		.ui-li-desc { white-space: normal; margin-right: 20px; }
+	</style> 
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page">
+	<div data-role="header">
+		<h1>电影评论</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-theme="e">
+			<li data-role="list-divider">X-战警
+			  <p class="ui-li-aside">评论数: <em>1,588</em></p></li>
+			<li>
+				<img src="images/thumbs-up.png" class="ui-li-icon">
+				<p>快来看吧，非常好看，效果好！</p>
+		  </li>			
+		</ul>	
+		
+		<ul data-role="listview" data-inset="true" data-theme="e" data-count-theme="e">
+			<li data-role="list-divider">内容</li>
+			<li>
+				<img src="images/111-user.png" class="ui-li-icon">
+			  <p>好的，我马上去看看！.</p>
+				<span class="ui-li-count">1 天前</span>
+			</li>	
+			<li>
+				<img src="images/111-user.png" class="ui-li-icon">
+			  <p>票好买吗，我怕排队！!</p>
+				<span class="ui-li-count">3 天前</span>
+			</li>						
+		</ul>				
+	</div>
+	
+	<!-- toolbar with icons -->
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="arrow-l"></a></li>
+				<li><a href="#" data-icon="back"></a></li>
+				<li><a href="#" data-icon="star"></a></li>
+				<li><a href="#" data-icon="plus"></a></li>
+				<li><a href="#" data-icon="arrow-r"></a></li>
+			</ul>		
+		</div>
+	</div>		
+</div>
+
+</body>
+</html>
+

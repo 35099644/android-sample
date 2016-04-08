@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/185/trunk/src/com/googlecode/droidwall
+END
+MainActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/177/trunk/src/com/googlecode/droidwall/MainActivity.java
+END
+PassDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/64/trunk/src/com/googlecode/droidwall/PassDialog.java
+END
+BootBroadcast.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/184/trunk/src/com/googlecode/droidwall/BootBroadcast.java
+END
+StatusWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/184/trunk/src/com/googlecode/droidwall/StatusWidget.java
+END
+HelpDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/102/trunk/src/com/googlecode/droidwall/HelpDialog.java
+END
+Api.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/185/trunk/src/com/googlecode/droidwall/Api.java
+END
+PackageBroadcast.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/154/trunk/src/com/googlecode/droidwall/PackageBroadcast.java
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/188/trunk/external/iptables/include
+END
+ip6tables.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/188/trunk/external/iptables/include/ip6tables.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/188/trunk/external/iptables/include/Makefile.in
+END
+xtables.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/188/trunk/external/iptables/include/xtables.h
+END
+iptables.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/188/trunk/external/iptables/include/iptables.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/188/trunk/external/iptables/include/Makefile.am
+END
+xtables.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/188/trunk/external/iptables/include/xtables.h.in
+END

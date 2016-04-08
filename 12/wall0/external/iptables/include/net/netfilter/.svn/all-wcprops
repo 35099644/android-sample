@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/188/trunk/external/iptables/include/net/netfilter
+END
+nf_conntrack_tuple.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/188/trunk/external/iptables/include/net/netfilter/nf_conntrack_tuple.h
+END
+nf_nat.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/188/trunk/external/iptables/include/net/netfilter/nf_nat.h
+END

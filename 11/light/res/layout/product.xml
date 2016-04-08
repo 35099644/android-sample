@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:background="@drawable/bac"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="match_parent" android:layout_width="match_parent">
+        <ImageButton android:src="@drawable/back" android:background="#0000" android:layout_height="wrap_content" android:id="@+id/back" android:layout_width="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentRight="true"></ImageButton>
+        <ImageView android:src="@drawable/product" android:id="@+id/imageView1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_above="@+id/back" android:layout_alignParentLeft="true" android:layout_marginLeft="117dp" android:layout_marginBottom="31dp"></ImageView>
+        <ImageView android:src="@drawable/title" android:id="@+id/imageView2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignLeft="@+id/imageView1" android:layout_marginLeft="59dp" android:layout_marginTop="42dp"></ImageView>
+    </RelativeLayout>
+    
+</LinearLayout>

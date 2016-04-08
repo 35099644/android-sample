@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="hello">Hello World, TextActivity!</string>
+
+    <string name="app_name">灯光控制界面</string>
+    <string name="title">my room</string>
+    <string name="groupone"></string>
+    <string name="grouptwo">The second group of light</string>
+    <string name="exit">退出</string>
+
+  <string name="app_about">Warning</string>
+  <string name="app_about_msg">Are you sure to leave？</string>
+  <string name="str_ok">OK</string>
+  <string name="str_no">Cancel</string>
+   <string name="str_noo">Return</string>
+  <string name="app_about_msgg">You should write at least 80 words
+   A Brief Introduction to a 
+   Tourist Attraction Your role: 
+   a tour guide Your audience: 
+   a group of foreign tourists Your introduction should include: 
+   ● some welcoming words 
+   ● the schedule for the day 
+   ● a description of the place the tourists will be visiting </string>
+  <string name="app_about_introduce">Introduce</string>
+  <string name="intr0">Lighting control system is a software</string>
+  <string name="intr1">which can remotely control lights.</string>
+  <string name="intr2">You can use this system through the Bluetooth</string>
+  <string name="intr3">transmission data to control the light in the room.</string>
+  <string name="intr4">Enter the national standard of illumination.</string>
+  <string name="intr5">Enter the room pattern choice.</string>
+  <string name="intr6">Return to home menu.</string>
+  <string name="intr7">Author:Yanqing Xiang</string>
+  <string name="intr8">Tel:15024330921</string>
+  <string name="intr9">Email:xyqdreams@foxmail.com</string>
+  <string name="Enter">Enter the room selection</string>
+</resources>

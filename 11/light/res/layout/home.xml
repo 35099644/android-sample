@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:background="@drawable/bac"
+  android:layout_height="match_parent" android:weightSum="1">
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_width="match_parent" android:layout_height="682dp">
+        <ImageView android:layout_alignParentLeft="true" android:id="@+id/imageView2" android:src="@drawable/enter1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/imageView1"></ImageView>
+        <ImageView android:id="@+id/imageView4" android:src="@drawable/enter2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/imageView2" android:layout_alignParentLeft="true" android:layout_marginLeft="48dp" android:layout_marginTop="86dp"></ImageView>
+        <ImageView android:id="@+id/imageView5" android:src="@drawable/enter3" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentBottom="true" android:layout_alignLeft="@+id/imageView4" android:layout_marginBottom="66dp"></ImageView>
+        <ImageView android:id="@+id/imageView7" android:src="@drawable/split" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignBottom="@+id/imageView5" android:layout_alignLeft="@+id/imageView6"></ImageView>
+        <ImageButton android:id="@+id/Enterp" android:background="#0000" android:src="@drawable/enter0" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignBottom="@+id/imageView6" android:layout_alignLeft="@+id/Enterr"></ImageButton>
+        <ImageButton android:id="@+id/Enterc" android:background="#0000" android:src="@drawable/enter0" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_above="@+id/imageView7" android:layout_alignLeft="@+id/Enterp"></ImageButton>
+        <ImageView android:id="@+id/imageView6" android:src="@drawable/split" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/imageView4" android:layout_alignLeft="@+id/imageView3"></ImageView>
+        <ImageView android:id="@+id/imageView1" android:src="@drawable/logo" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></ImageView>
+        <ImageButton android:background="#0000" android:id="@+id/Enterr" android:src="@drawable/enter0" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignBottom="@+id/imageView3" android:layout_toRightOf="@+id/imageView1" android:layout_marginLeft="63dp"></ImageButton>
+        <ImageView android:id="@+id/imageView3" android:src="@drawable/split" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/imageView2" android:layout_alignRight="@+id/imageView1" android:layout_marginRight="87dp"></ImageView>
+   
+</RelativeLayout>
+    <RelativeLayout android:layout_weight="0.95" android:layout_height="wrap_content" android:id="@+id/relativeLayout2" android:layout_width="match_parent"></RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		style="@android:style/ButtonBar"
+		android:background="@drawable/title_background">
+		<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#0000" android:id="@+id/back" android:src="@drawable/back" android:layout_centerHorizontal="true" android:layout_alignTop="@+id/imageButton3"></ImageButton>			   ></RelativeLayout>
+    
+</LinearLayout>

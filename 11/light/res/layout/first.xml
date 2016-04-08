@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#0000"
+    android:weightSum="1" android:orientation="vertical">
+    <ImageButton 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:src="@drawable/help_2"
+    android:background="#0000"
+    android:id="@+id/imageButton1" 
+    android:layout_gravity="right"></ImageButton>
+    
+    
+    <TextView 
+    android:id="@+id/textview1" 
+    android:layout_height="wrap_content" 
+    android:layout_width="wrap_content" 
+    android:layout_alignParentTop="true" 
+    android:layout_alignParentRight="true" 
+    android:layout_marginRight="76dp" 
+    android:layout_marginTop="15dp"></TextView>
+    <RelativeLayout 
+    android:id="@+id/relativeLayout1" 
+    android:layout_width="match_parent" android:layout_height="696dp" android:gravity="left">
+        <RadioGroup android:layout_height="wrap_content" android:id="@+id/radioGroup1" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/imageButton2" android:layout_marginLeft="18dp" android:layout_marginTop="32dp">
+        </RadioGroup>
+        <ImageButton android:id="@+id/imageButton5" android:layout_height="wrap_content" android:background="#0000" android:layout_width="wrap_content" android:src="@drawable/button2_c" android:layout_alignTop="@+id/imageButton3" android:layout_alignLeft="@+id/imageButton4"></ImageButton>
+        <RadioGroup android:layout_height="wrap_content" android:id="@+id/radioGroup3" android:layout_width="wrap_content" android:layout_alignTop="@+id/radioGroup2" android:layout_toRightOf="@+id/radioGroup1" android:layout_marginLeft="45dp">
+            <RadioButton android:text="0%" android:layout_height="wrap_content" android:id="@+id/radio21" android:layout_width="wrap_content" ></RadioButton>
+            <RadioButton android:text="20%" android:layout_height="wrap_content" android:id="@+id/radio22" android:layout_width="wrap_content"></RadioButton>
+            <RadioButton android:text="40%" android:layout_height="wrap_content" android:id="@+id/radio23" android:layout_width="wrap_content"></RadioButton>
+            <RadioButton android:text="60%" android:layout_height="wrap_content" android:id="@+id/radio24" android:layout_width="wrap_content"></RadioButton>
+            <RadioButton android:text="80%" android:layout_height="wrap_content" android:id="@+id/radio25" android:layout_width="wrap_content"></RadioButton>
+            <RadioButton android:text="100%" android:layout_height="wrap_content" android:id="@+id/radio26" android:layout_width="wrap_content"></RadioButton>
+        </RadioGroup>
+        <ImageButton android:id="@+id/imageButton4" android:layout_height="wrap_content" android:background="#0000" android:layout_width="wrap_content" android:src="@drawable/button2_o" android:layout_alignTop="@+id/imageButton2" android:layout_toRightOf="@+id/radioGroup1" android:layout_marginLeft="24dp"></ImageButton>
+        <RadioGroup android:layout_height="wrap_content" android:id="@+id/radioGroup4" android:layout_width="wrap_content" android:layout_alignTop="@+id/radioGroup3" android:layout_toRightOf="@+id/imageButton4" android:layout_marginLeft="76dp">
+            <RadioButton android:text="0%" android:layout_height="wrap_content" android:id="@+id/radio31" android:layout_width="wrap_content"></RadioButton>
+            <RadioButton android:text="20%" android:layout_height="wrap_content" android:id="@+id/radio32" android:layout_width="wrap_content"></RadioButton>
+            <RadioButton android:text="40%" android:layout_height="wrap_content" android:id="@+id/radio33" android:layout_width="wrap_content"></RadioButton>      
+        	<RadioButton android:text="60%" android:layout_width="wrap_content" android:id="@+id/radio34" android:layout_height="wrap_content" android:layout_below="@+id/radioGroup4" android:layout_alignLeft="@+id/radioGroup4"></RadioButton>
+        	<RadioButton android:text="80%" android:layout_width="wrap_content" android:id="@+id/radio35" android:layout_height="wrap_content" android:layout_below="@+id/radioButton4" android:layout_alignLeft="@+id/radioButton4"></RadioButton>
+        	<RadioButton android:text="100%" android:layout_width="wrap_content" android:id="@+id/radio36" android:layout_height="wrap_content" android:layout_below="@+id/radioButton5" android:layout_alignLeft="@+id/radioButton5"></RadioButton>
+</RadioGroup>
+       	 	<TextView android:layout_height="wrap_content" android:text="第三路调光" android:textColor="#ffffff" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_alignTop="@+id/textView2" android:layout_alignLeft="@+id/radioGroup4"></TextView>
+        	<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/button3_c" android:background="#0000" android:id="@+id/imageButton7" android:layout_alignTop="@+id/imageButton5" android:layout_alignLeft="@+id/imageButton6"></ImageButton>
+        	<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/button3_o" android:background="#0000" android:id="@+id/imageButton6" android:layout_alignTop="@+id/imageButton4" android:layout_toRightOf="@+id/imageButton4" android:layout_marginLeft="56dp"></ImageButton>
+        	<TextView android:layout_width="wrap_content" android:text="第四路调光" android:layout_height="wrap_content" android:id="@+id/textView5" android:textColor="#ffffff" android:layout_alignTop="@+id/textView4" android:layout_alignRight="@+id/radioGroup5"></TextView>
+        	<ImageButton android:src="@drawable/button4_c" android:layout_height="wrap_content" android:id="@+id/imageButton9" android:background="#0000" android:layout_width="wrap_content" android:layout_alignTop="@+id/imageButton7" android:layout_alignLeft="@+id/imageButton8"></ImageButton>
+        	<ImageButton android:src="@drawable/split" android:layout_height="wrap_content" android:id="@+id/imageButton10" android:background="#0000" android:layout_width="1000dip" android:layout_alignTop="@+id/radioGroup2" android:layout_alignRight="@+id/radioGroup4" android:layout_marginTop="47dp"></ImageButton>
+        	<ImageButton android:src="@drawable/split" android:layout_height="wrap_content" android:id="@+id/imageButton11" android:background="#0000" android:layout_width="wrap_content" android:layout_alignTop="@+id/imageButton10" android:layout_alignRight="@+id/radioGroup5"></ImageButton>
+        	<ImageButton android:background="#0000" android:layout_height="wrap_content" android:src="@drawable/split" android:id="@+id/imageButton12" android:layout_width="wrap_content" android:layout_below="@+id/imageButton10" android:layout_alignLeft="@+id/radioGroup2" android:layout_marginTop="35dp"></ImageButton>
+        	<ImageButton android:background="#0000" android:layout_height="wrap_content" android:src="@drawable/split" android:id="@+id/imageButton15" android:layout_width="wrap_content" android:layout_alignTop="@+id/imageButton12" android:layout_alignRight="@+id/radioGroup5"></ImageButton>
+        	<ImageButton android:background="#0000" android:layout_height="wrap_content" android:src="@drawable/split" android:id="@+id/imageButton13" android:layout_width="wrap_content" android:layout_below="@+id/imageButton12" android:layout_alignRight="@+id/imageButton4" android:layout_marginTop="43dp"></ImageButton>
+        	<ImageButton android:background="#0000" android:layout_height="wrap_content" android:src="@drawable/split" android:id="@+id/imageButton17" android:layout_width="wrap_content" android:layout_alignTop="@+id/imageButton13" android:layout_alignRight="@+id/radioGroup5"></ImageButton>
+        	<ImageButton android:background="#0000" android:layout_height="wrap_content" android:src="@drawable/split" android:id="@+id/imageButton18" android:layout_width="wrap_content" android:layout_below="@+id/imageButton13" android:layout_alignLeft="@+id/imageButton13" android:layout_marginTop="39dp"></ImageButton>
+        	<ImageButton android:background="#0000" android:layout_height="wrap_content" android:src="@drawable/split" android:id="@+id/imageButton19" android:layout_width="wrap_content" android:layout_alignTop="@+id/imageButton18" android:layout_alignRight="@+id/radioGroup5"></ImageButton>
+        	<ImageButton android:id="@+id/imageButton3" android:layout_width="wrap_content" android:src="@drawable/button1_c" android:layout_height="wrap_content" android:background="#0000" android:layout_below="@+id/imageButton2" android:layout_alignLeft="@+id/imageButton2" android:layout_marginTop="30dp"></ImageButton>
+        	<RadioGroup android:layout_width="wrap_content" android:id="@+id/radioGroup2" android:layout_height="wrap_content" android:layout_below="@+id/radioGroup1" android:layout_alignParentLeft="true" android:layout_marginLeft="179dp" android:layout_marginTop="105dp">
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="0%" android:id="@+id/radio11"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="20%" android:id="@+id/radio12"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="40%" android:id="@+id/radio13"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="60%" android:id="@+id/radio14"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="80%" android:id="@+id/radio15"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="100%" android:id="@+id/radio16"></RadioButton>
+        	</RadioGroup>
+        	<TextView android:text="第二路调光" android:textColor="#ffffff" android:layout_width="wrap_content" android:id="@+id/textView2" android:layout_height="wrap_content" android:layout_alignTop="@+id/textView3" android:layout_alignLeft="@+id/radioGroup3"></TextView>
+        	<TextView android:text="第一路调光" android:textColor="#ffffff" android:layout_width="wrap_content" android:id="@+id/textView3" android:layout_height="wrap_content" android:layout_below="@+id/radioGroup1" android:layout_alignLeft="@+id/radioGroup2" android:layout_marginTop="44dp"></TextView>
+        	<TextView android:text="    一" android:layout_width="wrap_content" android:id="@+id/textView7" android:textSize="30sp" android:layout_height="wrap_content" android:layout_below="@+id/imageButton11" android:layout_alignRight="@+id/textView6"></TextView>
+        	<TextView android:text="    调" android:layout_width="wrap_content" android:id="@+id/textView8" android:textSize="30sp" android:layout_height="wrap_content" android:layout_below="@+id/imageButton15" android:layout_alignRight="@+id/textView7"></TextView>
+        	<TextView android:text="    光" android:layout_width="wrap_content" android:id="@+id/textView9" android:textSize="30sp" android:layout_height="wrap_content" android:layout_below="@+id/imageButton17" android:layout_alignRight="@+id/textView8"></TextView>
+        	<TextView android:text="    界" android:layout_width="wrap_content" android:id="@+id/textView10" android:textSize="30sp" android:layout_height="wrap_content" android:layout_below="@+id/imageButton19" android:layout_alignRight="@+id/textView9"></TextView>
+        	<ImageButton android:id="@+id/imageButton8" android:layout_width="wrap_content" android:src="@drawable/button4_o" android:layout_height="wrap_content" android:background="#0000" android:layout_alignTop="@+id/imageButton6" android:layout_toRightOf="@+id/imageButton6" android:layout_marginLeft="39dp"></ImageButton>
+        	<RadioGroup android:layout_width="wrap_content" android:id="@+id/radioGroup5" android:layout_height="wrap_content" android:layout_alignTop="@+id/radioGroup4" android:layout_alignRight="@+id/imageButton8">
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="0%" android:id="@+id/radio41"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="20%" android:id="@+id/radio42"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="40%" android:id="@+id/radio43"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="60%" android:id="@+id/radio44"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="80%" android:id="@+id/radio45"></RadioButton>
+        		<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="100%" android:id="@+id/radio46"></RadioButton>
+        	</RadioGroup>
+        	<ImageButton android:id="@+id/imageButton14" android:layout_width="1000dip" android:src="@drawable/line" android:layout_height="5dip" android:layout_below="@+id/radioGroup3"></ImageButton>
+        	<ImageButton android:layout_width="5dip" android:src="@drawable/line" android:layout_height="1000dip" android:id="@+id/imageButton16" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/textView5" android:layout_marginLeft="46dp"></ImageButton>
+        	<TextView android:textSize="30sp" android:layout_width="wrap_content" android:text="    第" android:id="@+id/textView6" android:layout_height="wrap_content" android:layout_alignTop="@+id/radioGroup5" android:layout_toRightOf="@+id/imageButton16" android:layout_marginLeft="24dp"></TextView>
+        	<ImageButton android:layout_width="wrap_content" android:src="@drawable/button1_add_x" android:layout_height="wrap_content" android:background="#0000" android:id="@+id/imageButton2" android:layout_below="@+id/imageButton14" android:layout_alignRight="@+id/radioGroup2" android:layout_marginTop="56dp"></ImageButton>
+        	<TextView android:id="@+id/textView11" android:text="    面" android:textSize="30sp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_above="@+id/imageButton14" android:layout_alignLeft="@+id/textView10"></TextView>
+        	<ImageButton android:layout_height="wrap_content" android:background="#0000" android:id="@+id/btnopen" android:layout_width="wrap_content" android:src="@drawable/allop" android:layout_alignTop="@+id/imageButton8" android:layout_alignLeft="@+id/textView11"></ImageButton>
+        	<ImageButton android:layout_height="wrap_content" android:id="@+id/btnclose" android:layout_width="wrap_content" android:src="@drawable/allcl" android:background="#0000" android:layout_alignTop="@+id/imageButton9" android:layout_alignLeft="@+id/btnopen"></ImageButton>
+        	
+       
+    </RelativeLayout>
+
+</LinearLayout>

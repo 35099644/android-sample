@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:custom="http://www.javaeye.com/custom"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/title_relativeLayout"
+    android:background="@drawable/one">
+
+	
+	
+	<!-- 中间动态显示界面 -->
+ 	<ViewFlipper android:id="@+id/fliper" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_below="@id/title_relativeLayout"
+		android:background="#0000"
+		android:layout_marginBottom="50.0dip">
+ 		
+	</ViewFlipper> 
+	
+	<!-- 底部为固定的布 -->
+		<!-- 底部为固定的布 -->
+	<RelativeLayout android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		style="@android:style/ButtonBar"
+		android:background="@drawable/title_background">
+	<ImageButton android:background="#0000" android:layout_width="wrap_content" android:src="@drawable/add" android:id="@+id/imageButton1" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"></ImageButton>
+	<ImageButton android:layout_height="wrap_content" android:background="#0000" android:id="@+id/imageButton2" android:layout_width="wrap_content" android:src="@drawable/menu" android:layout_alignTop="@+id/imageButton1" android:layout_alignParentRight="true"></ImageButton>			
+	
+</RelativeLayout>
+</RelativeLayout>

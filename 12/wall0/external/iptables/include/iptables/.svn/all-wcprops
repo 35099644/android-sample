@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/188/trunk/external/iptables/include/iptables
+END
+internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/188/trunk/external/iptables/include/iptables/internal.h
+END
+internal.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/188/trunk/external/iptables/include/iptables/internal.h.in
+END
