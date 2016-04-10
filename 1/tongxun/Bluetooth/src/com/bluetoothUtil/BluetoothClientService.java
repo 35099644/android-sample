@@ -1,4 +1,4 @@
-package com.bluetoothUtil;
+package com.bluetoothUtil; 
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,20 +17,20 @@ import android.os.IBinder;
 import android.os.Message;
 
 /**
- * À¶ÑÀÄ£¿é¿Í»§¶ËÖ÷¿ØÖÆService
+ * è“ç‰™æ¨¡å—å®¢æˆ·ç«¯ä¸»æ§åˆ¶Service
  */
 public class BluetoothClientService extends Service {
 	
-	//ËÑË÷µ½µÄÔ¶³ÌÉè±¸¼¯ºÏ
+	//æœç´¢åˆ°çš„è¿œç¨‹è®¾å¤‡é›†åˆ
 	private List<BluetoothDevice> discoveredDevices = new ArrayList<BluetoothDevice>();
 	
-	//À¶ÑÀÊÊÅäÆ÷
+	//è“ç‰™é€‚é…å™¨
 	private final BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	
-	//À¶ÑÀÍ¨Ñ¶Ïß³Ì
+	//è“ç‰™é€šè®¯çº¿ç¨‹
 	private BluetoothCommunThread communThread;
 	
-	//¿ØÖÆĞÅÏ¢¹ã²¥µÄ½ÓÊÕÆ÷
+	//æ§åˆ¶ä¿¡æ¯å¹¿æ’­çš„æ¥æ”¶å™¨
 	private BroadcastReceiver controlReceiver = new BroadcastReceiver() {
 		
 		@Override
@@ -38,27 +38,27 @@ public class BluetoothClientService extends Service {
 			String action = intent.getAction();
 			
 			if (BluetoothTools.ACTION_START_DISCOVERY.equals(action)) {
-				//¿ªÊ¼ËÑË÷
-				discoveredDevices.clear();	//Çå¿Õ´æ·ÅÉè±¸µÄ¼¯ºÏ
-				bluetoothAdapter.enable();	//´ò¿ªÀ¶ÑÀ
-				bluetoothAdapter.startDiscovery();	//¿ªÊ¼ËÑË÷
+				//å¼€å§‹æœç´¢
+				discoveredDevices.clear();	//æ¸…ç©ºå­˜æ”¾è®¾å¤‡çš„é›†åˆ
+				bluetoothAdapter.enable();	//æ‰“å¼€è“ç‰™
+				bluetoothAdapter.startDiscovery();	//å¼€å§‹æœç´¢
 				
 			} else if (BluetoothTools.ACTION_SELECTED_DEVICE.equals(action)) {
-				//Ñ¡ÔñÁËÁ¬½ÓµÄ·şÎñÆ÷Éè±¸
+				//é€‰æ‹©äº†è¿æ¥çš„æœåŠ¡å™¨è®¾å¤‡
 				BluetoothDevice device = (BluetoothDevice)intent.getExtras().get(BluetoothTools.DEVICE);
 				
-				//¿ªÆôÉè±¸Á¬½ÓÏß³Ì
+				//å¼€å¯è®¾å¤‡è¿æ¥çº¿ç¨‹
 				new BluetoothClientConnThread(handler, device).start();
 				
 			} else if (BluetoothTools.ACTION_STOP_SERVICE.equals(action)) {
-				//Í£Ö¹ºóÌ¨·şÎñ
+				//åœæ­¢åå°æœåŠ¡
 				if (communThread != null) {
 					communThread.isRun = false;
 				}
 				stopSelf();
 				
 			} else if (BluetoothTools.ACTION_DATA_TO_SERVICE.equals(action)) {
-				//»ñÈ¡Êı¾İ
+				//è·å–æ•°æ®
 				Object data = intent.getSerializableExtra(BluetoothTools.DATA);
 				if (communThread != null) {
 					communThread.writeObject(data);
@@ -68,31 +68,31 @@ public class BluetoothClientService extends Service {
 		}
 	};
 	
-	//À¶ÑÀËÑË÷¹ã²¥µÄ½ÓÊÕÆ÷
+	//è“ç‰™æœç´¢å¹¿æ’­çš„æ¥æ”¶å™¨
 	private BroadcastReceiver discoveryReceiver = new BroadcastReceiver() {
 		
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			//»ñÈ¡¹ã²¥µÄAction
+			//è·å–å¹¿æ’­çš„Action
 			String action = intent.getAction();
 
 			if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)) {
-				//¿ªÊ¼ËÑË÷
+				//å¼€å§‹æœç´¢
 			} else if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-				//·¢ÏÖÔ¶³ÌÀ¶ÑÀÉè±¸
-				//»ñÈ¡Éè±¸
+				//å‘ç°è¿œç¨‹è“ç‰™è®¾å¤‡
+				//è·å–è®¾å¤‡
 				BluetoothDevice bluetoothDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 				discoveredDevices.add(bluetoothDevice);
 
-				//·¢ËÍ·¢ÏÖÉè±¸¹ã²¥
+				//å‘é€å‘ç°è®¾å¤‡å¹¿æ’­
 				Intent deviceListIntent = new Intent(BluetoothTools.ACTION_FOUND_DEVICE);
 				deviceListIntent.putExtra(BluetoothTools.DEVICE, bluetoothDevice);
 				sendBroadcast(deviceListIntent);
 				
 			} else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-				//ËÑË÷½áÊø
+				//æœç´¢ç»“æŸ
 				if (discoveredDevices.isEmpty()) {
-					//ÈôÎ´ÕÒµ½Éè±¸£¬Ôò·¢¶¯Î´·¢ÏÖÉè±¸¹ã²¥
+					//è‹¥æœªæ‰¾åˆ°è®¾å¤‡ï¼Œåˆ™å‘åŠ¨æœªå‘ç°è®¾å¤‡å¹¿æ’­
 					Intent foundIntent = new Intent(BluetoothTools.ACTION_NOT_FOUND_SERVER);
 					sendBroadcast(foundIntent);
 				}
@@ -100,33 +100,33 @@ public class BluetoothClientService extends Service {
 		}
 	};
 	
-	//½ÓÊÕÆäËûÏß³ÌÏûÏ¢µÄHandler
+	//æ¥æ”¶å…¶ä»–çº¿ç¨‹æ¶ˆæ¯çš„Handler
 	Handler handler = new Handler() {
 
 		@Override
 		public void handleMessage(Message msg) {
-			//´¦ÀíÏûÏ¢
+			//å¤„ç†æ¶ˆæ¯
 			switch (msg.what) {
 			case BluetoothTools.MESSAGE_CONNECT_ERROR:
-				//Á¬½Ó´íÎó
-				//·¢ËÍÁ¬½Ó´íÎó¹ã²¥
+				//è¿æ¥é”™è¯¯
+				//å‘é€è¿æ¥é”™è¯¯å¹¿æ’­
 				Intent errorIntent = new Intent(BluetoothTools.ACTION_CONNECT_ERROR);
 				sendBroadcast(errorIntent);
 				break;
 			case BluetoothTools.MESSAGE_CONNECT_SUCCESS:
-				//Á¬½Ó³É¹¦
+				//è¿æ¥æˆåŠŸ
 				
-				//¿ªÆôÍ¨Ñ¶Ïß³Ì
+				//å¼€å¯é€šè®¯çº¿ç¨‹
 				communThread = new BluetoothCommunThread(handler, (BluetoothSocket)msg.obj);
 				communThread.start();
 				
-				//·¢ËÍÁ¬½Ó³É¹¦¹ã²¥
+				//å‘é€è¿æ¥æˆåŠŸå¹¿æ’­
 				Intent succIntent = new Intent(BluetoothTools.ACTION_CONNECT_SUCCESS);
 				sendBroadcast(succIntent);
 				break;
 			case BluetoothTools.MESSAGE_READ_OBJECT:
-				//¶ÁÈ¡µ½¶ÔÏó
-				//·¢ËÍÊı¾İ¹ã²¥£¨°üº¬Êı¾İ¶ÔÏó£©
+				//è¯»å–åˆ°å¯¹è±¡
+				//å‘é€æ•°æ®å¹¿æ’­ï¼ˆåŒ…å«æ•°æ®å¯¹è±¡ï¼‰
 				Intent dataIntent = new Intent(BluetoothTools.ACTION_DATA_TO_GAME);
 				dataIntent.putExtra(BluetoothTools.DATA, (Serializable)msg.obj);
 				sendBroadcast(dataIntent);
@@ -138,7 +138,7 @@ public class BluetoothClientService extends Service {
 	};
 	
 	/**
-	 * »ñÈ¡Í¨Ñ¶Ïß³Ì
+	 * è·å–é€šè®¯çº¿ç¨‹
 	 * @return
 	 */
 	public BluetoothCommunThread getBluetoothCommunThread() {
@@ -157,38 +157,38 @@ public class BluetoothClientService extends Service {
 	}
 	
 	/**
-	 * Service´´½¨Ê±µÄ»Øµ÷º¯Êı
+	 * Serviceåˆ›å»ºæ—¶çš„å›è°ƒå‡½æ•°
 	 */
 	@Override
 	public void onCreate() {
-		//discoveryReceiverµÄIntentFilter
+		//discoveryReceiverçš„IntentFilter
 		IntentFilter discoveryFilter = new IntentFilter();
 		discoveryFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
 		discoveryFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
 		discoveryFilter.addAction(BluetoothDevice.ACTION_FOUND);
 		
-		//controlReceiverµÄIntentFilter
+		//controlReceiverçš„IntentFilter
 		IntentFilter controlFilter = new IntentFilter();
 		controlFilter.addAction(BluetoothTools.ACTION_START_DISCOVERY);
 		controlFilter.addAction(BluetoothTools.ACTION_SELECTED_DEVICE);
 		controlFilter.addAction(BluetoothTools.ACTION_STOP_SERVICE);
 		controlFilter.addAction(BluetoothTools.ACTION_DATA_TO_SERVICE);
 		
-		//×¢²áBroadcastReceiver
+		//æ³¨å†ŒBroadcastReceiver
 		registerReceiver(discoveryReceiver, discoveryFilter);
 		registerReceiver(controlReceiver, controlFilter);
 		super.onCreate();
 	}
 	
 	/**
-	 * ServiceÏú»ÙÊ±µÄ»Øµ÷º¯Êı
+	 * Serviceé”€æ¯æ—¶çš„å›è°ƒå‡½æ•°
 	 */
 	@Override
 	public void onDestroy() {
 		if (communThread != null) {
 			communThread.isRun = false;
 		}
-		//½â³ı°ó¶¨
+		//è§£é™¤ç»‘å®š
 		unregisterReceiver(discoveryReceiver);
 		super.onDestroy();
 	}
