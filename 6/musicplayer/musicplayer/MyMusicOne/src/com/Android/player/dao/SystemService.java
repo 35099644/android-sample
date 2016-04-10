@@ -30,7 +30,7 @@ public class SystemService {
 	}
 	
 	/**
-	 * ¶ÁÈ¡ÕıÔÚ²¥·Å¸èÇúµÄÒÕÊõ¼Ò
+	 * è¯»å–æ­£åœ¨æ’­æ”¾æ­Œæ›²çš„è‰ºæœ¯å®¶
 	 * @return
 	 */
 	public String getArtist() {
@@ -40,8 +40,8 @@ public class SystemService {
 	}
 	
 	/**
-	 * ¶ÁÈ¡ÕıÔÚ²¥·Å¸èÇúÃû×Ö
-	 * @return ¸èÇúÃû×Ö
+	 * è¯»å–æ­£åœ¨æ’­æ”¾æ­Œæ›²åå­—
+	 * @return æ­Œæ›²åå­—
 	 */
 	public String getTitle() {
 		String title = cursor.getString(cursor
@@ -56,8 +56,8 @@ public class SystemService {
 	}
 	
 	/**
-	 *  ¶ÁÈ¡ÕıÔÚ²¥·Å¸èÇúµÄ×¨¼­
-	 * @return ×¨¼­Ãû
+	 *  è¯»å–æ­£åœ¨æ’­æ”¾æ­Œæ›²çš„ä¸“è¾‘
+	 * @return ä¸“è¾‘å
 	 * @throws RemoteException
 	 */
 	public String getAlbum() throws RemoteException {
@@ -66,11 +66,11 @@ public class SystemService {
 	}
 	
 	/*public int getDuration() throws RemoteException {
-		// »ñµÃµ±Ç°¸èÇúµÄÊ±³¤
+		// è·å¾—å½“å‰æ­Œæ›²çš„æ—¶é•¿
 		return player.getDuration();
 	}public int getTime() throws RemoteException {
-		// »ñµÃµ±Ç°µÄÃ½ÌåÊ±¼ä
+		// è·å¾—å½“å‰çš„åª’ä½“æ—¶é—´
 		return player.getCurrentPosition();
 	}*/
 
-}
+} 
