@@ -1,4 +1,4 @@
-package com.bluetoothUtil; 
+package com.bluetoothUtil;  
 
 import java.util.UUID;
 
