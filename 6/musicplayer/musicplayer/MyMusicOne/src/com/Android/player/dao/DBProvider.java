@@ -1,4 +1,4 @@
-package com.Android.player.dao;
+package com.Android.player.dao; 
 
 import com.Android.player.common.FileColumn;
 
@@ -31,14 +31,14 @@ public class DBProvider extends ContentProvider {
 		return 1;
 	}
 	/**
-	 * ´ıÊµÏÖ
+	 * å¾…å®ç°
 	 */
 	@Override
 	public String getType(Uri uri) {
 		return null;
 	}
 	/**
-	 * ²åÈë
+	 * æ’å…¥
 	 */
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
@@ -64,14 +64,14 @@ public class DBProvider extends ContentProvider {
 		return true;
 	}
 	/**
-	 * ¸ù¾İÌõ¼ş²éÑ¯
-	 * @return Êı¾İ¼¯
+	 * æ ¹æ®æ¡ä»¶æŸ¥è¯¢
+	 * @return æ•°æ®é›†
 	 */
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
-		// ÒÀ´Î²ÎÊıÎª£º±íÃ÷£¬²éÑ¯×Ö¶Î£¬whereÓï¾ä,Õ¼Î»·ûÌæ»»£¬group by(·Ö×é)£¬having(·Ö×éÌõ¼ş),order by(ÅÅĞò)
+		// ä¾æ¬¡å‚æ•°ä¸ºï¼šè¡¨æ˜ï¼ŒæŸ¥è¯¢å­—æ®µï¼Œwhereè¯­å¥,å ä½ç¬¦æ›¿æ¢ï¼Œgroup by(åˆ†ç»„)ï¼Œhaving(åˆ†ç»„æ¡ä»¶),order by(æ’åº)
 		Cursor cur = db.query(FileColumn.TABLE, projection, selection,
 				selectionArgs, null, null, sortOrder);
 		return cur;
