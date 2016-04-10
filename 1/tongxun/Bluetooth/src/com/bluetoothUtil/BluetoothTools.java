@@ -1,4 +1,4 @@
-package com.bluetoothUtil;
+package com.bluetoothUtil; 
 
 import java.util.UUID;
 
@@ -6,119 +6,119 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 
 /**
- * À¶ÑÀ¹¤¾ßÀà
+ * è“ç‰™å·¥å…·ç±»
  */
 public class BluetoothTools {
 
 	private static BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
 	
 	/**
-	 * ±¾³ÌĞòËùÊ¹ÓÃµÄUUID
+	 * æœ¬ç¨‹åºæ‰€ä½¿ç”¨çš„UUID
 	 */
 	public static final UUID PRIVATE_UUID = UUID.fromString("0f3561b9-bda5-4672-84ff-ab1f98e349b6");
 	
 	/**
-	 * ×Ö·û´®³£Á¿£¬´æ·ÅÔÚIntentÖĞµÄÉè±¸¶ÔÏó
+	 * å­—ç¬¦ä¸²å¸¸é‡ï¼Œå­˜æ”¾åœ¨Intentä¸­çš„è®¾å¤‡å¯¹è±¡
 	 */
 	public static final String DEVICE = "DEVICE";
 	
 	/**
-	 * ×Ö·û´®³£Á¿£¬·şÎñÆ÷ËùÔÚÉè±¸ÁĞ±íÖĞµÄÎ»ÖÃ
+	 * å­—ç¬¦ä¸²å¸¸é‡ï¼ŒæœåŠ¡å™¨æ‰€åœ¨è®¾å¤‡åˆ—è¡¨ä¸­çš„ä½ç½®
 	 */
 	public static final String SERVER_INDEX = "SERVER_INDEX";
 	
 	/**
-	 * ×Ö·û´®³£Á¿£¬IntentÖĞµÄÊı¾İ
+	 * å­—ç¬¦ä¸²å¸¸é‡ï¼ŒIntentä¸­çš„æ•°æ®
 	 */
 	public static final String DATA = "DATA";
 	
 	/**
-	 * ActionÀàĞÍ±êÊ¶·û£¬ActionÀàĞÍ Îª¶Áµ½Êı¾İ
+	 * Actionç±»å‹æ ‡è¯†ç¬¦ï¼ŒActionç±»å‹ ä¸ºè¯»åˆ°æ•°æ®
 	 */
 	public static final String ACTION_READ_DATA = "ACTION_READ_DATA";
 	
 	/**
-	 * ActionÀàĞÍ±êÊ¶·û£¬ActionÀàĞÍÎª Î´·¢ÏÖÉè±¸
+	 * Actionç±»å‹æ ‡è¯†ç¬¦ï¼ŒActionç±»å‹ä¸º æœªå‘ç°è®¾å¤‡
 	 */
 	public static final String ACTION_NOT_FOUND_SERVER = "ACTION_NOT_FOUND_DEVICE";
 	
 	/**
-	 * ActionÀàĞÍ±êÊ¶·û£¬ActionÀàĞÍÎª ¿ªÊ¼ËÑË÷Éè±¸
+	 * Actionç±»å‹æ ‡è¯†ç¬¦ï¼ŒActionç±»å‹ä¸º å¼€å§‹æœç´¢è®¾å¤‡
 	 */
 	public static final String ACTION_START_DISCOVERY = "ACTION_START_DISCOVERY";
 	
 	/**
-	 * Action£ºÉè±¸ÁĞ±í
+	 * Actionï¼šè®¾å¤‡åˆ—è¡¨
 	 */
 	public static final String ACTION_FOUND_DEVICE = "ACTION_FOUND_DEVICE";
 	
 	/**
-	 * Action£ºÑ¡ÔñµÄÓÃÓÚÁ¬½ÓµÄÉè±¸
+	 * Actionï¼šé€‰æ‹©çš„ç”¨äºè¿æ¥çš„è®¾å¤‡
 	 */
 	public static final String ACTION_SELECTED_DEVICE = "ACTION_SELECTED_DEVICE";
 	
 	/**
-	 * Action£º¿ªÆô·şÎñÆ÷
+	 * Actionï¼šå¼€å¯æœåŠ¡å™¨
 	 */
 	public static final String ACTION_START_SERVER = "ACTION_STARRT_SERVER";
 	
 	/**
-	 * Action£º¹Ø±ÕºóÌ¨Service
+	 * Actionï¼šå…³é—­åå°Service
 	 */
 	public static final String ACTION_STOP_SERVICE = "ACTION_STOP_SERVICE";
 	
 	/**
-	 * Action£ºµ½ServiceµÄÊı¾İ
+	 * Actionï¼šåˆ°Serviceçš„æ•°æ®
 	 */
 	public static final String ACTION_DATA_TO_SERVICE = "ACTION_DATA_TO_SERVICE";
 	
 	/**
-	 * Action£ºµ½ÓÎÏ·ÒµÎñÖĞµÄÊı¾İ
+	 * Actionï¼šåˆ°æ¸¸æˆä¸šåŠ¡ä¸­çš„æ•°æ®
 	 */
 	public static final String ACTION_DATA_TO_GAME = "ACTION_DATA_TO_GAME";
 	
 	/**
-	 * Action£ºÁ¬½Ó³É¹¦
+	 * Actionï¼šè¿æ¥æˆåŠŸ
 	 */
 	public static final String ACTION_CONNECT_SUCCESS = "ACTION_CONNECT_SUCCESS";
 	
 	/**
-	 * Action£ºÁ¬½Ó´íÎó
+	 * Actionï¼šè¿æ¥é”™è¯¯
 	 */
 	public static final String ACTION_CONNECT_ERROR = "ACTION_CONNECT_ERROR";
 	
 	/**
-	 * MessageÀàĞÍ±êÊ¶·û£¬Á¬½Ó³É¹¦
+	 * Messageç±»å‹æ ‡è¯†ç¬¦ï¼Œè¿æ¥æˆåŠŸ
 	 */
 	public static final int MESSAGE_CONNECT_SUCCESS = 0x00000002;
 	
 	/**
-	 * Message£ºÁ¬½ÓÊ§°Ü
+	 * Messageï¼šè¿æ¥å¤±è´¥
 	 */
 	public static final int MESSAGE_CONNECT_ERROR = 0x00000003;
 	
 	/**
-	 * Message£º¶ÁÈ¡µ½Ò»¸ö¶ÔÏó
+	 * Messageï¼šè¯»å–åˆ°ä¸€ä¸ªå¯¹è±¡
 	 */
 	public static final int MESSAGE_READ_OBJECT = 0x00000004;
 	
 	/**
-	 * ´ò¿ªÀ¶ÑÀ¹¦ÄÜ
+	 * æ‰“å¼€è“ç‰™åŠŸèƒ½
 	 */
 	public static void openBluetooth() {
 		adapter.enable();
 	}
 	
 	/**
-	 * ¹Ø±ÕÀ¶ÑÀ¹¦ÄÜ
+	 * å…³é—­è“ç‰™åŠŸèƒ½
 	 */
 	public static void closeBluetooth() {
 		adapter.disable();
 	}
 	
 	/**
-	 * ÉèÖÃÀ¶ÑÀ·¢ÏÖ¹¦ÄÜ
-	 * @param duration ÉèÖÃÀ¶ÑÀ·¢ÏÖ¹¦ÄÜ´ò¿ª³ÖĞøÃëÊı£¨ÖµÎª0ÖÁ300Ö®¼äµÄÕûÊı£©
+	 * è®¾ç½®è“ç‰™å‘ç°åŠŸèƒ½
+	 * @param duration è®¾ç½®è“ç‰™å‘ç°åŠŸèƒ½æ‰“å¼€æŒç»­ç§’æ•°ï¼ˆå€¼ä¸º0è‡³300ä¹‹é—´çš„æ•´æ•°ï¼‰
 	 */
 	public static void openDiscovery(int duration) {
 		if (duration <= 0 || duration > 300) {
@@ -129,7 +129,7 @@ public class BluetoothTools {
 	}
 	
 	/**
-	 * Í£Ö¹À¶ÑÀËÑË÷
+	 * åœæ­¢è“ç‰™æœç´¢
 	 */
 	public static void stopDiscovery() {
 		adapter.cancelDiscovery();
