@@ -14,17 +14,17 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DBHelper extends SQLiteOpenHelper{
     /**
-     * Êı¾İ¿âÃû³Æ³£Á¿
+     * æ•°æ®åº“åç§°å¸¸é‡
      */
     private static final String DATABASE_NAME = "MyMusic.db";
     /**
-     *  Êı¾İ¿â°æ±¾³£Á¿
+     *  æ•°æ®åº“ç‰ˆæœ¬å¸¸é‡
      */
     private static final int DATABASE_VERSION = 1;
     /**
-     *  ±íÃû³Æ³£Á¿
+     *  è¡¨åç§°å¸¸é‡
      */
-    public static final String TABLES_TABLE_NAME = "File_Table";
+    public static final String TABLES_TABLE_NAME = "File_Table"; 
     private static final String DATABASE_CREATE = "CREATE TABLE " + FileColumn.TABLE +" ("
 	+ FileColumn.ID+" integer primary key autoincrement,"
 	+ FileColumn.NAME+" text,"
@@ -32,17 +32,17 @@ public class DBHelper extends SQLiteOpenHelper{
 	+ FileColumn.SORT+" integer,"
 	+ FileColumn.TYPE+" text)";
 	/**
-	 *  ¹¹Ôì·½·¨
+	 *  æ„é€ æ–¹æ³•
 	 * @param context
 	 */
 	public DBHelper(Context context) {
-		// ´´½¨Êı¾İ¿â
+		// åˆ›å»ºæ•°æ®åº“
 		super(context, DATABASE_NAME,null, DATABASE_VERSION);
 	}
 
 	
 	/**
-	 *  ´´½¨Ê±µ÷ÓÃ
+	 *  åˆ›å»ºæ—¶è°ƒç”¨
 	 */
 	public void onCreate(SQLiteDatabase db) {
 		/*Locale l = new Locale("zh", "CN");
@@ -53,10 +53,10 @@ public class DBHelper extends SQLiteOpenHelper{
 	}
 
 	/**
-	 *  °æ±¾¸üĞÂÊ±µ÷ÓÃ
+	 *  ç‰ˆæœ¬æ›´æ–°æ—¶è°ƒç”¨
 	 */
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// É¾³ı±í
+		// åˆ é™¤è¡¨
 		db.execSQL("DROP TABLE IF EXISTS File_Table");
         onCreate(db);
 	}
