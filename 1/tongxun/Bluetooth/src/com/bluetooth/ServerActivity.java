@@ -1,4 +1,4 @@
-package com.bluetooth;
+package com.bluetooth; 
 
 import java.util.Date;
 
@@ -27,7 +27,7 @@ public class ServerActivity extends Activity {
 	private EditText sendMsgEditText;
 	private Button sendBtn;
 	
-	//¹ã²¥½ÓÊÕÆ÷
+	//å¹¿æ’­æ¥æ”¶å™¨
 	private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 		
 		@Override
@@ -36,14 +36,14 @@ public class ServerActivity extends Activity {
 			String action = intent.getAction();
 			
 			if (BluetoothTools.ACTION_DATA_TO_GAME.equals(action)) {
-				//½ÓÊÕÊı¾İ
+				//æ¥æ”¶æ•°æ®
 				TransmitBean data = (TransmitBean)intent.getExtras().getSerializable(BluetoothTools.DATA);
 				String msg = "from remote " + new Date().toLocaleString() + " :\r\n" + data.getMsg() + "\r\n";
 				msgEditText.append(msg);
 			
 			} else if (BluetoothTools.ACTION_CONNECT_SUCCESS.equals(action)) {
-				//Á¬½Ó³É¹¦
-				serverStateTextView.setText("Á¬½Ó³É¹¦");
+				//è¿æ¥æˆåŠŸ
+				serverStateTextView.setText("è¿æ¥æˆåŠŸ");
 				sendBtn.setEnabled(true);
 			}
 			
@@ -52,11 +52,11 @@ public class ServerActivity extends Activity {
 	
 	@Override
 	protected void onStart() {
-		//¿ªÆôºóÌ¨service
+		//å¼€å¯åå°service
 		Intent startService = new Intent(ServerActivity.this, BluetoothServerService.class);
 		startService(startService);
 		
-		//×¢²áBoradcasrReceiver
+		//æ³¨å†ŒBoradcasrReceiver
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction(BluetoothTools.ACTION_DATA_TO_GAME);
 		intentFilter.addAction(BluetoothTools.ACTION_CONNECT_SUCCESS);
@@ -71,7 +71,7 @@ public class ServerActivity extends Activity {
 		setContentView(R.layout.server);
 		
 		serverStateTextView = (TextView)findViewById(R.id.serverStateText);
-		serverStateTextView.setText("ÕıÔÚÁ¬½Ó...");
+		serverStateTextView.setText("æ­£åœ¨è¿æ¥...");
 		
 		msgEditText = (EditText)findViewById(R.id.serverEditText);
 		
@@ -82,9 +82,9 @@ public class ServerActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if ("".equals(sendMsgEditText.getText().toString().trim())) {
-					Toast.makeText(ServerActivity.this, "ÊäÈë²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
+					Toast.makeText(ServerActivity.this, "è¾“å…¥ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
 				} else {
-					//·¢ËÍÏûÏ¢
+					//å‘é€æ¶ˆæ¯
 					TransmitBean data = new TransmitBean();
 					data.setMsg(sendMsgEditText.getText().toString());
 					Intent sendDataIntent = new Intent(BluetoothTools.ACTION_DATA_TO_SERVICE);
@@ -100,7 +100,7 @@ public class ServerActivity extends Activity {
 	@Override
 	protected void onStop() {
 
-		//¹Ø±ÕºóÌ¨Service
+		//å…³é—­åå°Service
 		Intent startService = new Intent(BluetoothTools.ACTION_STOP_SERVICE);
 		sendBroadcast(startService);
 		
