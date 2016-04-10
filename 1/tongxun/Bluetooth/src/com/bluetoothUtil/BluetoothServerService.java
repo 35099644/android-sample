@@ -1,4 +1,4 @@
-package com.bluetoothUtil;
+package com.bluetoothUtil; 
 
 import java.io.Serializable;
 
@@ -14,17 +14,17 @@ import android.os.IBinder;
 import android.os.Message;
 
 /**
- * À¶ÑÀÄ£¿é·şÎñÆ÷¶ËÖ÷¿ØÖÆService
+ * è“ç‰™æ¨¡å—æœåŠ¡å™¨ç«¯ä¸»æ§åˆ¶Service
  */
 public class BluetoothServerService extends Service {
 
-	//À¶ÑÀÊÊÅäÆ÷
+	//è“ç‰™é€‚é…å™¨
 	private final BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	
-	//À¶ÑÀÍ¨Ñ¶Ïß³Ì
+	//è“ç‰™é€šè®¯çº¿ç¨‹
 	private BluetoothCommunThread communThread;
 	
-	//¿ØÖÆĞÅÏ¢¹ã²¥½ÓÊÕÆ÷
+	//æ§åˆ¶ä¿¡æ¯å¹¿æ’­æ¥æ”¶å™¨
 	private BroadcastReceiver controlReceiver = new BroadcastReceiver() {
 		
 		@Override
@@ -32,14 +32,14 @@ public class BluetoothServerService extends Service {
 			String action = intent.getAction();
 			
 			if (BluetoothTools.ACTION_STOP_SERVICE.equals(action)) {
-				//Í£Ö¹ºóÌ¨·şÎñ
+				//åœæ­¢åå°æœåŠ¡
 				if (communThread != null) {
 					communThread.isRun = false;
 				}
 				stopSelf();
 				
 			} else if (BluetoothTools.ACTION_DATA_TO_SERVICE.equals(action)) {
-				//·¢ËÍÊı¾İ
+				//å‘é€æ•°æ®
 				Object data = intent.getSerializableExtra(BluetoothTools.DATA);
 				if (communThread != null) {
 					communThread.writeObject(data);
@@ -49,7 +49,7 @@ public class BluetoothServerService extends Service {
 		}
 	};
 	
-	//½ÓÊÕÆäËûÏß³ÌÏûÏ¢µÄHandler
+	//æ¥æ”¶å…¶ä»–çº¿ç¨‹æ¶ˆæ¯çš„Handler
 	private Handler serviceHandler = new Handler() {
 
 		@Override
@@ -57,26 +57,26 @@ public class BluetoothServerService extends Service {
 			
 			switch (msg.what) {
 			case BluetoothTools.MESSAGE_CONNECT_SUCCESS:
-				//Á¬½Ó³É¹¦
-				//¿ªÆôÍ¨Ñ¶Ïß³Ì
+				//è¿æ¥æˆåŠŸ
+				//å¼€å¯é€šè®¯çº¿ç¨‹
 				communThread = new BluetoothCommunThread(serviceHandler, (BluetoothSocket)msg.obj);
 				communThread.start();
 				
-				//·¢ËÍÁ¬½Ó³É¹¦ÏûÏ¢
+				//å‘é€è¿æ¥æˆåŠŸæ¶ˆæ¯
 				Intent connSuccIntent = new Intent(BluetoothTools.ACTION_CONNECT_SUCCESS);
 				sendBroadcast(connSuccIntent);
 				break;
 				
 			case BluetoothTools.MESSAGE_CONNECT_ERROR:
-				//Á¬½Ó´íÎó
-				//·¢ËÍÁ¬½Ó´íÎó¹ã²¥
+				//è¿æ¥é”™è¯¯
+				//å‘é€è¿æ¥é”™è¯¯å¹¿æ’­
 				Intent errorIntent = new Intent(BluetoothTools.ACTION_CONNECT_ERROR);
 				sendBroadcast(errorIntent);
 				break;
 				
 			case BluetoothTools.MESSAGE_READ_OBJECT:
-				//¶ÁÈ¡µ½Êı¾İ
-				//·¢ËÍÊı¾İ¹ã²¥£¨°üº¬Êı¾İ¶ÔÏó£©
+				//è¯»å–åˆ°æ•°æ®
+				//å‘é€æ•°æ®å¹¿æ’­ï¼ˆåŒ…å«æ•°æ®å¯¹è±¡ï¼‰
 				Intent dataIntent = new Intent(BluetoothTools.ACTION_DATA_TO_GAME);
 				dataIntent.putExtra(BluetoothTools.DATA, (Serializable)msg.obj);
 				sendBroadcast(dataIntent);
@@ -90,7 +90,7 @@ public class BluetoothServerService extends Service {
 	};
 	
 	/**
-	 * »ñÈ¡Í¨Ñ¶Ïß³Ì
+	 * è·å–é€šè®¯çº¿ç¨‹
 	 * @return
 	 */
 	public BluetoothCommunThread getBluetoothCommunThread() {
@@ -99,23 +99,23 @@ public class BluetoothServerService extends Service {
 	
 	@Override
 	public void onCreate() {
-		//ControlReceiverµÄIntentFilter
+		//ControlReceiverçš„IntentFilter
 		IntentFilter controlFilter = new IntentFilter();
 		controlFilter.addAction(BluetoothTools.ACTION_START_SERVER);
 		controlFilter.addAction(BluetoothTools.ACTION_STOP_SERVICE);
 		controlFilter.addAction(BluetoothTools.ACTION_DATA_TO_SERVICE);
 		
-		//×¢²áBroadcastReceiver
+		//æ³¨å†ŒBroadcastReceiver
 		registerReceiver(controlReceiver, controlFilter);
 		
-		//¿ªÆô·şÎñÆ÷
-		bluetoothAdapter.enable();	//´ò¿ªÀ¶ÑÀ
-		//¿ªÆôÀ¶ÑÀ·¢ÏÖ¹¦ÄÜ£¨300Ãë£©
+		//å¼€å¯æœåŠ¡å™¨
+		bluetoothAdapter.enable();	//æ‰“å¼€è“ç‰™
+		//å¼€å¯è“ç‰™å‘ç°åŠŸèƒ½ï¼ˆ300ç§’ï¼‰
 		Intent discoveryIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
 		discoveryIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
 		discoveryIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(discoveryIntent);
-		//¿ªÆôºóÌ¨Á¬½ÓÏß³Ì
+		//å¼€å¯åå°è¿æ¥çº¿ç¨‹
 		new BluetoothServerConnThread(serviceHandler).start();
 		
 		super.onCreate();
