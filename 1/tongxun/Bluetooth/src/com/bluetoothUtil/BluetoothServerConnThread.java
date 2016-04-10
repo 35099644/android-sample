@@ -9,17 +9,17 @@ import android.os.Handler;
 import android.os.Message;
 
 /**
- * ·şÎñÆ÷Á¬½ÓÏß³Ì
+ * æœåŠ¡å™¨è¿æ¥çº¿ç¨‹
  */
 public class BluetoothServerConnThread extends Thread {
 	
-	private Handler serviceHandler;		//ÓÃÓÚÍ¬ServiceÍ¨ĞÅµÄHandler
+	private Handler serviceHandler;		//ç”¨äºåŒServiceé€šä¿¡çš„Handler
 	private BluetoothAdapter adapter;
-	private BluetoothSocket socket;		//ÓÃÓÚÍ¨ĞÅµÄSocket
+	private BluetoothSocket socket;		//ç”¨äºé€šä¿¡çš„Socket
 	private BluetoothServerSocket serverSocket;
 	
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•° 
 	 * @param handler
 	 */
 	public BluetoothServerConnThread(Handler handler) {
@@ -34,7 +34,7 @@ public class BluetoothServerConnThread extends Thread {
 			serverSocket = adapter.listenUsingRfcommWithServiceRecord("Server", BluetoothTools.PRIVATE_UUID);
 			socket = serverSocket.accept();
 		} catch (Exception e) {
-			//·¢ËÍÁ¬½ÓÊ§°ÜÏûÏ¢
+			//å‘é€è¿æ¥å¤±è´¥æ¶ˆæ¯
 			serviceHandler.obtainMessage(BluetoothTools.MESSAGE_CONNECT_ERROR).sendToTarget();
 			e.printStackTrace();
 			return;
@@ -47,13 +47,13 @@ public class BluetoothServerConnThread extends Thread {
 		}
 		
 		if (socket != null) {
-			//·¢ËÍÁ¬½Ó³É¹¦ÏûÏ¢£¬ÏûÏ¢µÄobj×Ö¶ÎÎªÁ¬½ÓµÄsocket
+			//å‘é€è¿æ¥æˆåŠŸæ¶ˆæ¯ï¼Œæ¶ˆæ¯çš„objå­—æ®µä¸ºè¿æ¥çš„socket
 			Message msg = serviceHandler.obtainMessage();
 			msg.what = BluetoothTools.MESSAGE_CONNECT_SUCCESS;
 			msg.obj = socket;
 			msg.sendToTarget();
 		} else {
-			//·¢ËÍÁ¬½ÓÊ§°ÜÏûÏ¢
+			//å‘é€è¿æ¥å¤±è´¥æ¶ˆæ¯
 			serviceHandler.obtainMessage(BluetoothTools.MESSAGE_CONNECT_ERROR).sendToTarget();
 			return;
 		}
