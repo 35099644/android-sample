@@ -1,4 +1,4 @@
-package com.bluetooth;
+package com.bluetooth; 
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,7 +34,7 @@ public class ClientActivity extends Activity {
 	
 	private List<BluetoothDevice> deviceList = new ArrayList<BluetoothDevice>();
 	
-	//¹ã²¥½ÓÊÕÆ÷
+	//å¹¿æ’­æ¥æ”¶å™¨
 	private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 		
 		@Override
@@ -42,22 +42,22 @@ public class ClientActivity extends Activity {
 			String action = intent.getAction();
 			
 			if (BluetoothTools.ACTION_NOT_FOUND_SERVER.equals(action)) {
-				//Î´·¢ÏÖÉè±¸
+				//æœªå‘ç°è®¾å¤‡
 				serversText.append("not found device\r\n");
 				
 			} else if (BluetoothTools.ACTION_FOUND_DEVICE.equals(action)) {
-				//»ñÈ¡µ½Éè±¸¶ÔÏó
+				//è·å–åˆ°è®¾å¤‡å¯¹è±¡
 				BluetoothDevice device = (BluetoothDevice)intent.getExtras().get(BluetoothTools.DEVICE);
 				deviceList.add(device);
 				serversText.append(device.getName() + "\r\n");
 				
 			} else if (BluetoothTools.ACTION_CONNECT_SUCCESS.equals(action)) {
-				//Á¬½Ó³É¹¦
-				serversText.append("Á¬½Ó³É¹¦");
+				//è¿æ¥æˆåŠŸ
+				serversText.append("è¿æ¥æˆåŠŸ");
 				sendBtn.setEnabled(true);
 				
 			} else if (BluetoothTools.ACTION_DATA_TO_GAME.equals(action)) {
-				//½ÓÊÕÊı¾İ
+				//æ¥æ”¶æ•°æ®
 				TransmitBean data = (TransmitBean)intent.getExtras().getSerializable(BluetoothTools.DATA);
 				String msg = "from remote " + new Date().toLocaleString() + " :\r\n" + data.getMsg() + "\r\n";
 				chatEditText.append(msg);
@@ -69,14 +69,14 @@ public class ClientActivity extends Activity {
 	
 	@Override
 	protected void onStart() {
-		//Çå¿ÕÉè±¸ÁĞ±í
+		//æ¸…ç©ºè®¾å¤‡åˆ—è¡¨
 		deviceList.clear();
 		
-		//¿ªÆôºóÌ¨service
+		//å¼€å¯åå°service
 		Intent startService = new Intent(ClientActivity.this, BluetoothClientService.class);
 		startService(startService);
 		
-		//×¢²áBoradcasrReceiver
+		//æ³¨å†ŒBoradcasrReceiver
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction(BluetoothTools.ACTION_NOT_FOUND_SERVER);
 		intentFilter.addAction(BluetoothTools.ACTION_FOUND_DEVICE);
@@ -104,11 +104,11 @@ public class ClientActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//·¢ËÍÏûÏ¢
+				//å‘é€æ¶ˆæ¯
 				if ("".equals(sendEditText.getText().toString().trim())) {
-					Toast.makeText(ClientActivity.this, "ÊäÈë²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
+					Toast.makeText(ClientActivity.this, "è¾“å…¥ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
 				} else {
-					//·¢ËÍÏûÏ¢
+					//å‘é€æ¶ˆæ¯
 					TransmitBean data = new TransmitBean();
 					data.setMsg(sendEditText.getText().toString());
 					Intent sendDataIntent = new Intent(BluetoothTools.ACTION_DATA_TO_SERVICE);
@@ -122,7 +122,7 @@ public class ClientActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//¿ªÊ¼ËÑË÷
+				//å¼€å§‹æœç´¢
 				Intent startSearchIntent = new Intent(BluetoothTools.ACTION_START_DISCOVERY);
 				sendBroadcast(startSearchIntent);
 			}
@@ -132,7 +132,7 @@ public class ClientActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//Ñ¡ÔñµÚÒ»¸öÉè±¸
+				//é€‰æ‹©ç¬¬ä¸€ä¸ªè®¾å¤‡
 				Intent selectDeviceIntent = new Intent(BluetoothTools.ACTION_SELECTED_DEVICE);
 				selectDeviceIntent.putExtra(BluetoothTools.DEVICE, deviceList.get(0));
 				sendBroadcast(selectDeviceIntent);
@@ -142,7 +142,7 @@ public class ClientActivity extends Activity {
 
 	@Override
 	protected void onStop() {
-		//¹Ø±ÕºóÌ¨Service
+		//å…³é—­åå°Service
 		Intent startService = new Intent(BluetoothTools.ACTION_STOP_SERVICE);
 		sendBroadcast(startService);
 		
