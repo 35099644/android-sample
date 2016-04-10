@@ -1,4 +1,4 @@
-package com.Android.player.activity;
+package com.Android.player.activity; 
 
 import java.io.File;
 
@@ -75,7 +75,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 		}
 
-		init_Play_Rack();// ½çÃæ³õÊ¼»¯
+		init_Play_Rack();// ç•Œé¢åˆå§‹åŒ–
 		
 		if (playingName != null) {//
 			int time1 = mplayer.getDuration();
@@ -91,30 +91,30 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 			handler.postDelayed(thread_One, 1000);
 			lrc_time = new ArrayList<String>();
 			lrc_word = new ArrayList<String>();
-			showLrc(playingName);// ¸è´ÊÏÔÊ¾
+			showLrc(playingName);// æ­Œè¯æ˜¾ç¤º
 		}
 
-		if (selectName != null) {// ²¥·ÅÑ¡ÖĞµÄ¸èÇú
+		if (selectName != null) {// æ’­æ”¾é€‰ä¸­çš„æ­Œæ›²
 
-			play_bt.setImageBitmap(musicAdapter.getSuspend_Icon());// Ä¬ÈÏÔİÍ£Í¼±ê
+			play_bt.setImageBitmap(musicAdapter.getSuspend_Icon());// é»˜è®¤æš‚åœå›¾æ ‡
 			play_Music();
 			lrc_time = new ArrayList<String>();
 			lrc_word = new ArrayList<String>();
-			showLrc(selectName);// ¸è´ÊÏÔÊ¾
+			showLrc(selectName);// æ­Œè¯æ˜¾ç¤º
 
 		}
 
-		if (!(currently_Music.getText().toString()).equals("ÎŞ")) {
-			play_bt.setOnTouchListener(playListener);// ²¥·Å¼àÌıÆ÷
-			seekBar.setOnSeekBarChangeListener(seekBarListener);// Òô¹ì¼àÌıÆ÷
-			stop_bt.setOnTouchListener(stopListener);// Í£Ö¹¼àÌıÆ÷
-			move_Down.setOnTouchListener(downListener);// ÏÂÒ»Ê×¸èÇú¼àÌıÆ÷
-			move_Up.setOnTouchListener(upListener);// ÉÏÒ»Ê×¸èÇú¼àÌıÆ÷
+		if (!(currently_Music.getText().toString()).equals("æ— ")) {
+			play_bt.setOnTouchListener(playListener);// æ’­æ”¾ç›‘å¬å™¨
+			seekBar.setOnSeekBarChangeListener(seekBarListener);// éŸ³è½¨ç›‘å¬å™¨
+			stop_bt.setOnTouchListener(stopListener);// åœæ­¢ç›‘å¬å™¨
+			move_Down.setOnTouchListener(downListener);// ä¸‹ä¸€é¦–æ­Œæ›²ç›‘å¬å™¨
+			move_Up.setOnTouchListener(upListener);// ä¸Šä¸€é¦–æ­Œæ›²ç›‘å¬å™¨
 		}
 
-		list_bt.setOnTouchListener(list_bt_listener);// Çåµ¥¼àÌıÆ÷
+		list_bt.setOnTouchListener(list_bt_listener);// æ¸…å•ç›‘å¬å™¨
 		back_bt.setOnTouchListener(return_bt_listener);
-		mplayer.setOnCompletionListener(playerListener);// ¼àÌı¸èÇúÊÇ·ñ²¥·ÅÍê
+		mplayer.setOnCompletionListener(playerListener);// ç›‘å¬æ­Œæ›²æ˜¯å¦æ’­æ”¾å®Œ
 		
 		
 		/**
@@ -143,7 +143,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 				MODE_WORLD_WRITEABLE);
 		SharedPreferences.Editor editor = sp.edit();
 		playingName = currently_Music.getText().toString();
-		if (!playingName.equals("ÎŞ"))
+		if (!playingName.equals("æ— "))
 			editor.putString("PLAYINGNAME", playingName);
 		editor.putString("SELECTNAME", selectName);
 		editor.putString("MUSIC_LIST", StringHelper.toStringAll(music_List));
@@ -188,7 +188,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 		System.exit(0);
 	};
 	/**
-	 *  ½çÃæ³õÊ¼»¯
+	 *  ç•Œé¢åˆå§‹åŒ–
 	 */
 	private void init_Play_Rack() {
 		list_bt = (ImageButton) findViewById(R.id.listplay);
@@ -206,7 +206,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 		mplayer = MusicHelp.getMediaPlayer();
 		musicAdapter = new MusicAdapter(this, music_List);
 		handler = MusicHelp.getHandler();
-		currently_Music.setText("ÎŞ");
+		currently_Music.setText("æ— ");
 		currently_Music.setTextColor(Color.WHITE);
 		currently_Time.setTextColor(Color.WHITE);
 		end_Time.setTextColor(Color.WHITE);
@@ -239,14 +239,14 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	}
 
 	/**
-	 *  ¸èÇú²¥·ÅÍê¼àÌıÆ÷
+	 *  æ­Œæ›²æ’­æ”¾å®Œç›‘å¬å™¨
 	 */
 	OnCompletionListener playerListener = new OnCompletionListener() {
 
 		@Override
 		public void onCompletion(MediaPlayer mp) {
 
-			play_Mode();// ²¥·ÅÄ£Ê½
+			play_Mode();// æ’­æ”¾æ¨¡å¼
 			lrc_time = new ArrayList<String>();
 			lrc_word = new ArrayList<String>();
 			showLrc(selectName);
@@ -266,7 +266,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	};
 	 */
 	/**
-	 * ½áÊø¼àÌıÆ÷
+	 * ç»“æŸç›‘å¬å™¨
 	 */
 	OnTouchListener return_bt_listener = new OnTouchListener() {
 
@@ -279,7 +279,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 				back_bt.setImageResource(R.drawable.white);
 				finish();
 				onDestroy();
-			//	android.os.Process.killProcess(android.os.Process.myPid());    //»ñÈ¡PID£¬Ä¿Ç°»ñÈ¡×Ô¼ºµÄÒ²Ö»ÓĞ¸ÃAPI£¬·ñÔò´Ó/procÖĞ×Ô¼ºµÄÃ¶¾ÙÆäËû½ø³Ì°É£¬²»¹ıÒªËµÃ÷µÄÊÇ£¬½áÊøÆäËû½ø³Ì²»Ò»¶¨ÓĞÈ¨ÏŞ£¬²»È»¾ÍÂÒÌ×ÁË¡£
+			//	android.os.Process.killProcess(android.os.Process.myPid());    //è·å–PIDï¼Œç›®å‰è·å–è‡ªå·±çš„ä¹Ÿåªæœ‰è¯¥APIï¼Œå¦åˆ™ä»/procä¸­è‡ªå·±çš„æšä¸¾å…¶ä»–è¿›ç¨‹å§ï¼Œä¸è¿‡è¦è¯´æ˜çš„æ˜¯ï¼Œç»“æŸå…¶ä»–è¿›ç¨‹ä¸ä¸€å®šæœ‰æƒé™ï¼Œä¸ç„¶å°±ä¹±å¥—äº†ã€‚
 			//	System.exit(0); 
 			}
 
@@ -291,7 +291,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	
 
 	/**
-	 *  Çåµ¥¼àÌıÆ÷
+	 *  æ¸…å•ç›‘å¬å™¨
 	 */
 	OnTouchListener list_bt_listener = new OnTouchListener() {
 
@@ -322,7 +322,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 	};
 	/**
-	 *  Òô¹ì¼àÌıÆ÷
+	 *  éŸ³è½¨ç›‘å¬å™¨
 	 */
 	private OnSeekBarChangeListener seekBarListener = new OnSeekBarChangeListener() {
 		@Override
@@ -346,14 +346,14 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	};
 	/**
 	 *  
-	// ²¥·Å¼àÌıÆ÷
+	// æ’­æ”¾ç›‘å¬å™¨
 	private OnClickListener playListener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
 
 			if (mplayer.isPlaying()) {
-				mplayer.pause();// ÔİÍ£
+				mplayer.pause();// æš‚åœ
 				currently_Time.setText(currently_Time.getText().toString());
 				play_bt.setImageBitmap(musicAdapter.getPlay_Icon());
 				handler.removeCallbacks(thread_One);
@@ -376,7 +376,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	};
 	*/
 	/**
-	 *  ²¥·Å¼àÌıÆ÷
+	 *  æ’­æ”¾ç›‘å¬å™¨
 	 */
 	OnTouchListener playListener = new OnTouchListener() {
 
@@ -393,7 +393,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 			} else if (event.getAction() == MotionEvent.ACTION_UP) {
 				if (mplayer.isPlaying()) {
-					mplayer.pause();// ÔİÍ£
+					mplayer.pause();// æš‚åœ
 					currently_Time.setText(currently_Time.getText().toString());
 					play_bt.setImageBitmap(musicAdapter.getPlay_Icon());
 					handler.removeCallbacks(thread_One);
@@ -421,7 +421,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	};
 	/**
 	 * 
-	// Í£Ö¹¼àÌıÆ÷
+	// åœæ­¢ç›‘å¬å™¨
 	OnClickListener stopListener = new OnClickListener() {
 
 		@Override
@@ -434,13 +434,13 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 			handler.removeCallbacks(thread_One);
 			seekBar.setProgress(1);
 			is_stopping = true;
-			lrcTime.setText("ÎŞ");
+			lrcTime.setText("æ— ");
 
 		}
 	};
 	*/
 	/**
-	 * Í£Ö¹¼àÌıÆ÷
+	 * åœæ­¢ç›‘å¬å™¨
 	 */
 	OnTouchListener stopListener = new OnTouchListener() {
 
@@ -458,7 +458,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 				handler.removeCallbacks(thread_One);
 				seekBar.setProgress(1);
 				is_stopping = true;
-				lrcTime.setText("ÎŞ");
+				lrcTime.setText("æ— ");
 			}
 
 			return false;
@@ -468,7 +468,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	};
 	/**
 	 * 
-	// ÏÂÒ»Ê×¸èÇú¼àÌıÆ÷
+	// ä¸‹ä¸€é¦–æ­Œæ›²ç›‘å¬å™¨
 	OnClickListener downListener = new OnClickListener() {
 
 		@Override
@@ -476,13 +476,13 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 			move_Down(currently_Music.getText().toString());
 			lrc_time = new ArrayList<String>();
 			lrc_word = new ArrayList<String>();
-			showLrc(currently_Music.getText().toString());// ¸è´ÊÏÔÊ¾
+			showLrc(currently_Music.getText().toString());// æ­Œè¯æ˜¾ç¤º
 
 		}
 	};
 	 */
 	/**
-	 * ÏÂÒ»Ê×¸èÇú¼àÌıÆ÷
+	 * ä¸‹ä¸€é¦–æ­Œæ›²ç›‘å¬å™¨
 	 */
 	OnTouchListener downListener = new OnTouchListener() {
 
@@ -496,7 +496,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 				move_Down(currently_Music.getText().toString());
 				lrc_time = new ArrayList<String>();
 				lrc_word = new ArrayList<String>();
-				showLrc(currently_Music.getText().toString());// ¸è´ÊÏÔÊ¾
+				showLrc(currently_Music.getText().toString());// æ­Œè¯æ˜¾ç¤º
 			}
 
 			return false;
@@ -507,7 +507,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	/**
 	 * 
 	
-	// ÉÏÒ»Ê×¸èÇú¼àÌıÆ÷
+	// ä¸Šä¸€é¦–æ­Œæ›²ç›‘å¬å™¨
 	OnClickListener upListener = new OnClickListener() {
 
 		@Override
@@ -516,13 +516,13 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 			move_Up(currently_Music.getText().toString());
 			lrc_time = new ArrayList<String>();
 			lrc_word = new ArrayList<String>();
-			showLrc(currently_Music.getText().toString());// ¸è´ÊÏÔÊ¾
+			showLrc(currently_Music.getText().toString());// æ­Œè¯æ˜¾ç¤º
 
 		}
 	};
 	 */
 	/**
-	 *  ÉÏÒ»Ê×¸èÇú¼àÌıÆ÷
+	 *  ä¸Šä¸€é¦–æ­Œæ›²ç›‘å¬å™¨
 	 */
 	OnTouchListener upListener = new OnTouchListener() {
 
@@ -536,7 +536,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 				move_Up(currently_Music.getText().toString());
 				lrc_time = new ArrayList<String>();
 				lrc_word = new ArrayList<String>();
-				showLrc(currently_Music.getText().toString());// ¸è´ÊÏÔÊ¾
+				showLrc(currently_Music.getText().toString());// æ­Œè¯æ˜¾ç¤º
 			}
 
 			return false;
@@ -546,7 +546,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	};
 	
 	/**
-	 *  ÏÂÒ»Ê×¸èÇú
+	 *  ä¸‹ä¸€é¦–æ­Œæ›²
 	 * @param musicName
 	 */
 	private void move_Down(String musicName) {
@@ -570,7 +570,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	}
 
 	/**
-	 *  ÉÏÒ»Ê×¸èÇú
+	 *  ä¸Šä¸€é¦–æ­Œæ›²
 	 * @param musicName
 	 */
 	private void move_Up(String musicName) {
@@ -578,7 +578,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 			if (musicName.equals(music_List.get(i))) {
 				if ((i - 1) >= 0) {
-					selectName = music_List.get(i - 1);// ÒÆ¶¯µ½ÉÏÒ»Ê×¸èÇú
+					selectName = music_List.get(i - 1);// ç§»åŠ¨åˆ°ä¸Šä¸€é¦–æ­Œæ›²
 					play_Music();
 					return;
 				} else {
@@ -593,19 +593,19 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	}
 
 	/**
-	 *  ²¥·ÅÄ£Ê½
+	 *  æ’­æ”¾æ¨¡å¼
 	 */
 	private void play_Mode() {
-		if ("is_Sigle".equals(play_Mode)) {// µ¥ÇúÑ­»·
+		if ("is_Sigle".equals(play_Mode)) {// å•æ›²å¾ªç¯
 			play_Music();
 		}
-		if ("is_Order".equals(play_Mode)) {// Ë³Ğò²¥·Å
+		if ("is_Order".equals(play_Mode)) {// é¡ºåºæ’­æ”¾
 			move_Down(currently_Music.getText().toString());
 		}
-		if ("is_Random".equals(play_Mode)) {// Ëæ»ú²¥·Å
+		if ("is_Random".equals(play_Mode)) {// éšæœºæ’­æ”¾
 			Random r = new Random();
-			int idx = r.nextInt(music_List.size());// Ëæ»úÉú³É [0,music_List.size())
-			// µÄINTÖµ
+			int idx = r.nextInt(music_List.size());// éšæœºç”Ÿæˆ [0,music_List.size())
+			// çš„INTå€¼
 			selectName = music_List.get(idx);
 
 			play_Music();
@@ -613,13 +613,13 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	}
 
 	/**
-	 *  ²¥·Å¸èÇú
+	 *  æ’­æ”¾æ­Œæ›²
 	 */
 	private void play_Music() {
 		try {
 
 			mplayer.reset();
-			mplayer.setDataSource(query());// ÎÄ¼şÁ÷ÖĞÑ¡Ôñ¸èÇú
+			mplayer.setDataSource(query());// æ–‡ä»¶æµä¸­é€‰æ‹©æ­Œæ›²
 			mplayer.prepare();
 			mplayer.start();
 			currently_Music.setText(selectName);
@@ -629,7 +629,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 				currently_Music.setText(title);
 			}*/
 			
-			seekBar.setMax(mplayer.getDuration());// ÒôÆµÎÄ¼ş³ÖĞøÊ±¼ä
+			seekBar.setMax(mplayer.getDuration());// éŸ³é¢‘æ–‡ä»¶æŒç»­æ—¶é—´
 			seekBar.setProgress(1);
 			currently_Time.setText(getFileTime(mplayer.getCurrentPosition()));
 		//	lrcTime.setText(systemProvider.getArtist());
@@ -643,8 +643,8 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 		}
 	}
 	/**
-	 * ²éÑ¯¸èÇúÂ·¾¶
-	 * @return ¸èÇúÂ·¾¶
+	 * æŸ¥è¯¢æ­Œæ›²è·¯å¾„
+	 * @return æ­Œæ›²è·¯å¾„
 	 */
 	public String query() {
 		ContentResolver cr = getContentResolver();
@@ -662,12 +662,12 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 	}
 	/**
-	 * »ñÈ¡ÒôÀÖÎÄ¼şµÄ²¥·Å³ÖĞøÊ±¼ä³¤µÄ¸ñÊ½»¯×Ö·û´®
+	 * è·å–éŸ³ä¹æ–‡ä»¶çš„æ’­æ”¾æŒç»­æ—¶é—´é•¿çš„æ ¼å¼åŒ–å­—ç¬¦ä¸²
 	 * @param timeMs
-	 * @return ¸ñÊ½»¯Ê±¼ä×Ö·û´®
+	 * @return æ ¼å¼åŒ–æ—¶é—´å­—ç¬¦ä¸²
 	 */
 	private String getFileTime(int timeMs) {
-		int totalSeconds = timeMs / 1000;// »ñÈ¡ÎÄ¼şÓĞ¶àÉÙÃë
+		int totalSeconds = timeMs / 1000;// è·å–æ–‡ä»¶æœ‰å¤šå°‘ç§’
 		StringBuilder mFormatBuilder = new StringBuilder();
 		Formatter mFormatter = new Formatter(mFormatBuilder, Locale
 				.getDefault());
@@ -678,7 +678,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 		if (hours > 0) {
 			return mFormatter.format("%d:%02d:%02d", hours, minutes, seconds)
-					.toString();// ¸ñÊ½»¯×Ö·û´®
+					.toString();// æ ¼å¼åŒ–å­—ç¬¦ä¸²
 		} else {
 			return mFormatter.format("%02d:%02d", minutes, seconds).toString();
 		}
@@ -686,7 +686,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 
 	/**
-	 * ÏÔÊ¾¸è´Ê
+	 * æ˜¾ç¤ºæ­Œè¯
 	 * @param musicName
 	 */
 	private void showLrc(String musicName) {
@@ -714,9 +714,9 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 		}
 	}
 	/**
-	 * ÏÔÊ¾µ±Ç°¸èÇú²¥·Åµ½µÄ¸è´Ê
-	 * @param time Ê±¼äÊı×é¼¯
-	 * @param word ¸èÇúÊı×é¼¯
+	 * æ˜¾ç¤ºå½“å‰æ­Œæ›²æ’­æ”¾åˆ°çš„æ­Œè¯
+	 * @param time æ—¶é—´æ•°ç»„é›†
+	 * @param word æ­Œæ›²æ•°ç»„é›†
 	 */
 	private void showLrcTwo(List<String> time, List<String> word) {
 		if (time.size() > 0 && word.size() > 0)
@@ -727,17 +727,17 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 
 			}
 		else
-			lrcTime.setText("ÔİÎŞ¸è´Ê");
+			lrcTime.setText("æš‚æ— æ­Œè¯");
 	}
 	/**
-	 * Ïß³Ì
+	 * çº¿ç¨‹
 	 */
 	private Runnable thread_One = new Runnable() {
 		public void run() {
 
-			int currently_Progress = seekBar.getProgress() + 1000;// ¼Ó1Ãë
+			int currently_Progress = seekBar.getProgress() + 1000;// åŠ 1ç§’
 			seekBar.setProgress(currently_Progress);
-			currently_Time.setText(getFileTime(mplayer.getCurrentPosition()));// Ã¿1000mË¢ĞÂ¸èÇúÒô¹ì
+			currently_Time.setText(getFileTime(mplayer.getCurrentPosition()));// æ¯1000måˆ·æ–°æ­Œæ›²éŸ³è½¨
 			showLrcTwo(lrc_time, lrc_word);
 			handler.postDelayed(thread_One, 1000);
 			Log.i("time", currently_Time.getText().toString());
@@ -748,7 +748,7 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 	
 	
 	/**
-	 * Í¼Æ¬ÏÔÊ¾
+	 * å›¾ç‰‡æ˜¾ç¤º
 	 * @author Administrator
 	 *
 	 */
@@ -826,11 +826,11 @@ public class MainPlayActivity extends MainPlayActivityRoot{
 					{
 						selectName=bundle.getString("selectName");
 						if(selectName!=null){
-							play_bt.setImageBitmap(musicAdapter.getSuspend_Icon());// Ä¬ÈÏÔİÍ£Í¼±ê
+							play_bt.setImageBitmap(musicAdapter.getSuspend_Icon());// é»˜è®¤æš‚åœå›¾æ ‡
 							play_Music();
 							lrc_time = new ArrayList<String>();
 							lrc_word = new ArrayList<String>();
-							showLrc(selectName);// ¸è´ÊÏÔÊ¾
+							showLrc(selectName);// æ­Œè¯æ˜¾ç¤º
 				    	}
 					}
 				}
