@@ -1,4 +1,4 @@
-package com.bluetoothUtil;
+package com.bluetoothUtil; 
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -10,19 +10,19 @@ import android.os.Handler;
 import android.os.Message;
 	
 /**
- * À¶ÑÀÍ¨Ñ¶Ïß³Ì
+ * è“ç‰™é€šè®¯çº¿ç¨‹
  */
 public class BluetoothCommunThread extends Thread {
 
-	private Handler serviceHandler;		//ÓëServiceÍ¨ĞÅµÄHandler
+	private Handler serviceHandler;		//ä¸Serviceé€šä¿¡çš„Handler
 	private BluetoothSocket socket;
-	private ObjectInputStream inStream;		//¶ÔÏóÊäÈëÁ÷
-	private ObjectOutputStream outStream;	//¶ÔÏóÊä³öÁ÷
-	public volatile boolean isRun = true;	//ÔËĞĞ±êÖ¾Î»
+	private ObjectInputStream inStream;		//å¯¹è±¡è¾“å…¥æµ
+	private ObjectOutputStream outStream;	//å¯¹è±¡è¾“å‡ºæµ
+	public volatile boolean isRun = true;	//è¿è¡Œæ ‡å¿—ä½
 	
 	/**
-	 * ¹¹Ôìº¯Êı
-	 * @param handler ÓÃÓÚ½ÓÊÕÏûÏ¢
+	 * æ„é€ å‡½æ•°
+	 * @param handler ç”¨äºæ¥æ”¶æ¶ˆæ¯
 	 * @param socket
 	 */
 	public BluetoothCommunThread(Handler handler, BluetoothSocket socket) {
@@ -37,7 +37,7 @@ public class BluetoothCommunThread extends Thread {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			//·¢ËÍÁ¬½ÓÊ§°ÜÏûÏ¢
+			//å‘é€è¿æ¥å¤±è´¥æ¶ˆæ¯
 			serviceHandler.obtainMessage(BluetoothTools.MESSAGE_CONNECT_ERROR).sendToTarget();
 			e.printStackTrace();
 		}
@@ -51,20 +51,20 @@ public class BluetoothCommunThread extends Thread {
 			}
 			try {
 				Object obj = inStream.readObject();
-				//·¢ËÍ³É¹¦¶ÁÈ¡µ½¶ÔÏóµÄÏûÏ¢£¬ÏûÏ¢µÄobj²ÎÊıÎª¶ÁÈ¡µ½µÄ¶ÔÏó
+				//å‘é€æˆåŠŸè¯»å–åˆ°å¯¹è±¡çš„æ¶ˆæ¯ï¼Œæ¶ˆæ¯çš„objå‚æ•°ä¸ºè¯»å–åˆ°çš„å¯¹è±¡
 				Message msg = serviceHandler.obtainMessage();
 				msg.what = BluetoothTools.MESSAGE_READ_OBJECT;
 				msg.obj = obj;
 				msg.sendToTarget();
 			} catch (Exception ex) {
-				//·¢ËÍÁ¬½ÓÊ§°ÜÏûÏ¢
+				//å‘é€è¿æ¥å¤±è´¥æ¶ˆæ¯
 				serviceHandler.obtainMessage(BluetoothTools.MESSAGE_CONNECT_ERROR).sendToTarget();
 				ex.printStackTrace();
 				return;
 			}
 		}
 		
-		//¹Ø±ÕÁ÷
+		//å…³é—­æµ
 		if (inStream != null) {
 			try {
 				inStream.close();
@@ -89,7 +89,7 @@ public class BluetoothCommunThread extends Thread {
 	}
 	
 	/**
-	 * Ğ´ÈëÒ»¸ö¿ÉĞòÁĞ»¯µÄ¶ÔÏó
+	 * å†™å…¥ä¸€ä¸ªå¯åºåˆ—åŒ–çš„å¯¹è±¡
 	 * @param obj
 	 */
 	public void writeObject(Object obj) {
