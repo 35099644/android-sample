@@ -1,4 +1,4 @@
-package com.bluetoothUtil;
+package com.bluetoothUtil; 
 
 import java.io.IOException;
 
@@ -9,16 +9,16 @@ import android.os.Handler;
 import android.os.Message;
 
 /**
- * À¶ÑÀ¿Í»§¶ËÁ¬½ÓÏß³Ì
+ * è“ç‰™å®¢æˆ·ç«¯è¿æ¥çº¿ç¨‹
  */
 public class BluetoothClientConnThread extends Thread{
 
-	private Handler serviceHandler;		//ÓÃÓÚÏò¿Í»§¶ËService»Ø´«ÏûÏ¢µÄhandler
-	private BluetoothDevice serverDevice;	//·şÎñÆ÷Éè±¸
-	private BluetoothSocket socket;		//Í¨ĞÅSocket
+	private Handler serviceHandler;		//ç”¨äºå‘å®¢æˆ·ç«¯Serviceå›ä¼ æ¶ˆæ¯çš„handler
+	private BluetoothDevice serverDevice;	//æœåŠ¡å™¨è®¾å¤‡
+	private BluetoothSocket socket;		//é€šä¿¡Socket
 	
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * @param handler
 	 * @param serverDevice
 	 */
@@ -41,12 +41,12 @@ public class BluetoothClientConnThread extends Thread{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			//·¢ËÍÁ¬½ÓÊ§°ÜÏûÏ¢
+			//å‘é€è¿æ¥å¤±è´¥æ¶ˆæ¯
 			serviceHandler.obtainMessage(BluetoothTools.MESSAGE_CONNECT_ERROR).sendToTarget();
 			return;
 		}
 		
-		//·¢ËÍÁ¬½Ó³É¹¦ÏûÏ¢£¬ÏûÏ¢µÄobj²ÎÊıÎªÁ¬½ÓµÄsocket
+		//å‘é€è¿æ¥æˆåŠŸæ¶ˆæ¯ï¼Œæ¶ˆæ¯çš„objå‚æ•°ä¸ºè¿æ¥çš„socket
 		Message msg = serviceHandler.obtainMessage();
 		msg.what = BluetoothTools.MESSAGE_CONNECT_SUCCESS;
 		msg.obj = socket;
