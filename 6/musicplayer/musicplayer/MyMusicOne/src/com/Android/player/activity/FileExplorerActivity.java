@@ -1,4 +1,4 @@
-package com.Android.player.activity;
+package com.Android.player.activity; 
 
 import java.io.File;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class FileExplorerActivity extends ListActivity {
 				Intent intent = this.getIntent();
 				intent.putExtra("filePath", file);
 				FileExplorerActivity.this.setResult(0, intent);
-				showDialog("¼ÓÈë²¥·ÅÁĞ±í?", file);
+				showDialog("åŠ å…¥æ’­æ”¾åˆ—è¡¨?", file);
 			}
 		}
 	}
@@ -83,24 +83,24 @@ public class FileExplorerActivity extends ListActivity {
 
 	private void showDialog(String msg, final File file) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(msg).setCancelable(false).setPositiveButton("È·¶¨",
+		builder.setMessage(msg).setCancelable(false).setPositiveButton("ç¡®å®š",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						String fileName = file.getName().substring(0,
 								file.getName().indexOf("."));
 						Log.i("info", fileName);
 						if (query(fileName)) {
-							insertMusic(file);// Ìí¼ÓÒôÀÖ
+							insertMusic(file);// æ·»åŠ éŸ³ä¹
 						}
 
 					}
-				}).setNegativeButton("È¡Ïû", null);
+				}).setNegativeButton("å–æ¶ˆ", null);
 		AlertDialog alert = builder.create();
 		alert.show();
 
 	}
 
-	// Ìí¼ÓÒôÀÖµ½²¥·ÅÁĞ±í
+	// æ·»åŠ éŸ³ä¹åˆ°æ’­æ”¾åˆ—è¡¨
 	private final void insertMusic(File file) {
 
 		ContentResolver cr = getContentResolver();
@@ -113,7 +113,7 @@ public class FileExplorerActivity extends ListActivity {
 		values.put(FileColumn.TYPE, "Music");
 		values.put(FileColumn.SORT, "popular");
 		cr.insert(uri, values);
-		Toast.makeText(FileExplorerActivity.this, "ÒÑ¼ÓÈë", Toast.LENGTH_LONG)
+		Toast.makeText(FileExplorerActivity.this, "å·²åŠ å…¥", Toast.LENGTH_LONG)
 				.show();
 	//	Intent intent = new Intent(FileExplorerActivity.this,
 	//			PlayListActivity.class);
@@ -135,10 +135,10 @@ public class FileExplorerActivity extends ListActivity {
 			for (int i = 0; i < c.getCount(); i++) {
 				c.moveToPosition(i);
 				String filename_DB = c.getString(0);
-				if (name.equals(filename_DB)) {// ÅĞ¶Ï²¥·ÅÁĞ±íÖĞÊÇ·ñ´æÔÚ¸Ã¸èÇú
+				if (name.equals(filename_DB)) {// åˆ¤æ–­æ’­æ”¾åˆ—è¡¨ä¸­æ˜¯å¦å­˜åœ¨è¯¥æ­Œæ›²
 					AlertDialog.Builder builder = new AlertDialog.Builder(this);
-					builder.setMessage("ÎÄ¼şÒÑ´æÔÚ").setCancelable(false)
-							.setPositiveButton("·µ»ØÁĞ±í",
+					builder.setMessage("æ–‡ä»¶å·²å­˜åœ¨").setCancelable(false)
+							.setPositiveButton("è¿”å›åˆ—è¡¨",
 									new DialogInterface.OnClickListener() {
 										public void onClick(
 												DialogInterface dialog, int id) {
@@ -147,7 +147,7 @@ public class FileExplorerActivity extends ListActivity {
 													PlayListActivity.class);
 											startActivity(intent);
 										}
-									}).setNegativeButton("ÖØĞÂÌí¼Ó", null);
+									}).setNegativeButton("é‡æ–°æ·»åŠ ", null);
 					AlertDialog alert = builder.create();
 					alert.show();
 					return false;
